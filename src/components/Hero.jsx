@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-const images = [
-  "../assets/hero1.png",
-  "../assets/hero2.png",
-  "../assets/hero3.png",
-  "../assets/hero4.png",
-];
+import hero1 from "../assets/hero1.png";
+import hero2 from "../assets/hero2.png";
+import hero3 from "../assets/hero3.png";
+import hero4 from "../assets/hero4.png";
+
+const images = [hero1, hero2, hero3, hero4];
 function Hero() {
   return (
     <div className="grid lg:grid-cols-2 gap-24 items-center">
@@ -24,10 +24,9 @@ function Hero() {
         </Link>
       </div>
       <div className="hidden h-[28rem] lg:carousel carousel-center p-4 space-x-4 bg-neutral rounded-box">
-        {images.map((image) => {
-          
+        {images.map((image, index) => {
           return (
-            <div className=" carousel-item">
+            <div className=" carousel-item " key={index}>
               <img
                 src={image}
                 alt=""
