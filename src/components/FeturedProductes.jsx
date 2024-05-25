@@ -2,7 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 function FeturedProductes() {
   const { products } = useLoaderData();
-
+  console.log(products);
   return (
     <div className="pt-24">
       <div className="border-b border-base-300 pb-5">
@@ -14,7 +14,7 @@ function FeturedProductes() {
         {products.map((product) => {
           return (
             <Link
-              to={`/products/:${product.id}`}
+              to={`/product/${product.id}`}
               className="card w-full shadow-xl hover:shadow-2xl transition duration-300"
               key={product.id}
             >

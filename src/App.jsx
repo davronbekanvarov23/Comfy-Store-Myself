@@ -38,7 +38,7 @@ function App() {
         { path: "/orders", element: <Orders /> },
         { path: "/products", element: <Products /> },
         {
-          path: "/products/:id",
+          path: "/product/:id",
           element: <SingleProduct />,
           loader: ProductLoader,
         },

@@ -1,10 +1,9 @@
 import { SingleHero } from "../components";
-import { customFetch } from "../utils";
+import { customSingle } from "../utils";
 
 export const loader = async ({ params }) => {
-  console.log(params);
-  const req = await customFetch(`/products/${params.id}`);
-  const product = req.data;
+  const req = await customSingle(`/products/${params.id}`);
+  const product = req.data.data;
   return { product };
 };
 function SingleProduct() {
