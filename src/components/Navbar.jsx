@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import Mode from "./Mode";
-import { SlBasket } from "react-icons/sl";
+import { BsCart3 } from "react-icons/bs";
 import { FaBarsStaggered } from "react-icons/fa6";
 function Navbar() {
   return (
@@ -40,7 +40,7 @@ function Navbar() {
               <span className="indicator-item badge badge-primary badge-sm">
                 9
               </span>
-              <SlBasket className="w-7 h-7" />
+              <BsCart3 className="w-6 h-6" />
             </div>
           </NavLink>
         </div>
