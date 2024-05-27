@@ -6,3 +6,5 @@ export { default as AboutSection } from "./AboutSection";
 export { default as Hero } from "./Hero";
 export { default as FeturedProductes } from "./FeturedProductes";
 export { default as SingleHero } from "./SingleHero";
+export { default as FormInput } from "./FormInput";
+export { default as SubmitBtn } from "./SubmitBtn";

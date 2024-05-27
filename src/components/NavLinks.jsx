@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 const links = [
   { id: 1, text: "Home", path: "/" },
   { id: 2, text: "About", path: "/about" },
@@ -14,15 +13,15 @@ function NavLinks() {
   return (
     <>
       {links.map((link) => {
+        const { id, text, path } = link;
         return (
-          <Link
-            to={link.path}
-            key={link.id}
-            className=" btn active:bg-black active:text-cyan-50 "
-          >
+          <li key={id}>
             {" "}
-            {link.text}{" "}
-          </Link>
+            <NavLink to={path} className=" capitalize ">
+              {" "}
+              {text}{" "}
+            </NavLink>
+          </li>
         );
       })}
     </>
