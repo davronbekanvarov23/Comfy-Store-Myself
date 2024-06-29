@@ -1,8 +1,8 @@
 import { Link, useLoaderData } from "react-router-dom";
+import { formatPrice } from "../utils";
 
 function FeturedProductes() {
   const { products } = useLoaderData();
-  console.log(products);
   return (
     <div className="pt-24">
       <div className="border-b border-base-300 pb-5">
@@ -29,7 +29,9 @@ function FeturedProductes() {
                 <h2 className="card-title capitalize tracking-wider">
                   {product.attributes.title}
                 </h2>
-                <p className=" text-secondary">${product.attributes.price}</p>
+                <p className=" text-secondary">
+                  {formatPrice(product.attributes.price)}
+                </p>
               </div>
             </Link>
           );

@@ -1,7 +1,16 @@
 import { Link, useLoaderData } from "react-router-dom";
+import { formatPrice, generedAmountOptions } from "../utils";
+import { useState } from "react";
 function SingleHero() {
   const { product } = useLoaderData();
-  console.log(product);
+  const [productColor, setProductColor] = useState(
+    product.attributes.colors[0]
+  );
+  const [amount, setAmount] = useState(1);
+
+  const handeAmount = (e) => {
+    setAmount(parseInt(e.target.value));
+  };
   return (
     <div>
       <div className="text-md breadcrumbs">
@@ -27,20 +36,51 @@ function SingleHero() {
           <h4 className="text-xl text-neutral-content font-bold mt-2">
             {product.attributes.company}
           </h4>
-          <p className=" mt-3 text-xl">${product.attributes.price}</p>
+          <p className=" mt-3 text-xl">
+            {formatPrice(product.attributes.price)}
+          </p>
           <p className=" mt-6 leading-8">{product.attributes.description}</p>
           <div className=" mt-6">
-            <h4>Colors</h4>
+            <h4 className="text-md font-medium tracking-wider capitalize">
+              Colors:
+            </h4>
             <div className=" mt-2">
               {product.attributes.colors.map((color) => {
                 return (
                   <button
+                    key={color}
                     type="button"
-                    className="badge w-6 h-6 mr-2 "
+                    className={`badge w-6 h-6 mr-2 ${
+                      color == productColor && "border-2 border-secondary "
+                    } `}
                     style={{ backgroundColor: color }}
+                    onClick={() => setProductColor(color)}
                   ></button>
                 );
               })}
+            </div>
+            {/*Amount*/}
+            <div className=" form-control w-full max-xs">
+              <label className="label">
+                <h4 className="text-md font-medium -tracking-wider capitalize">
+                  amount:
+                </h4>
+              </label>
+              <select
+                className="select select-secondary select-bordered select-md"
+                value={amount}
+                onChange={handeAmount}
+              >
+                {generedAmountOptions(15)}
+              </select>
+            </div>
+            <div className="mt-10">
+              <button
+                className="btn btn-primary btn-md uppercase"
+                onClick={() => console.log("click me")}
+              >
+                Add to bag
+              </button>
             </div>
           </div>
         </div>

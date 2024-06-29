@@ -1,22 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-function Header() {
+const FormInput = ({ label, name, type, defaultValue, size }) => {
   return (
-    <header className=" bg-neutral py-2 text-neutral-content">
-      <div className=" align-content  max-w-6xl flex sm:justify-end">
-        <div className="flex gap-x-2 sm:gap-x-8 items-center">
-          <Link to="/login" className="link link-hover text-xs sm:text-sm ">
-            Sign in/ Guest
-          </Link>
-          <Link to="/register" className="link link-hover text-xs sm:text-sm ">
-            Create Account
-          </Link>
-          <button className="btn btn-xs btn-outline btn-primary">Logout</button>
-        </div>
-      </div>
-    </header>
+    <div className="form-control">
+      <label htmlFor={name} className="label">
+        <span className="label-text capitalize">{label}</span>
+      </label>
+      <input
+        id={name}
+        type={type}
+        name={name}
+        defaultValue={defaultValue}
+        className={`input input-bordered ${size}`}
+      />
+    </div>
   );
-}
+};
 
-export default Header;
+export default FormInput;

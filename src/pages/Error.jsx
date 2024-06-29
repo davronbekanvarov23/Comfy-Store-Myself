@@ -4,7 +4,6 @@ function Error() {
   const error = useRouteError();
   const img =
     "https://thumbs.dreamstime.com/b/space-rocket-vector-illustration-blasting-off-sky-32237994.jpg";
-  console.log(error);
 
   if (error.status == 404) {
     return (
